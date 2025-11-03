@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Calculators</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav id="menu">
+<ul>
+  <li><a class="nav-link" data-section="home">Home</a></li>
+  <li><a class="nav-link" data-section="regular">Regular Calculator</a></li>
+  <li><a class="nav-link" data-section="age">Age Calculator</a></li>
+  <li><a class="nav-link" data-section="time">Time Calculator</a></li>
+  <li class="dropdown">
+    <a class="nav-link">More ▼</a>
+    <ul class="dropdown-menu">
+      <li><a class="nav-link" data-section="money">Money</a></li>
+      <li><a class="nav-link" data-section="bmi">BMI</a></li>
+      <li><a class="nav-link" data-section="temp">Temperature</a></li>
+      <li><a class="nav-link" data-section="loan">Loan</a></li>
+      <li><a class="nav-link" data-section="discount">Discount</a></li>
+      <li><a class="nav-link" data-section="gst">GST/Tax</a></li>
+      <li><a class="nav-link" data-section="tip">Tip</a></li>
+      <li><a class="nav-link" data-section="percentage">Percentage</a></li>
+      <li><a class="nav-link" data-section="simple-interest">Simple Interest</a></li>
+      <li><a class="nav-link" data-section="compound-interest">Compound Interest</a></li>
+      <li><a class="nav-link" data-section="speed">Speed/Distance/Time</a></li>
+      <li><a class="nav-link" data-section="area">Area/Perimeter</a></li>
+      <li><a class="nav-link" data-section="volume">Volume</a></li>
+      <li><a class="nav-link" data-section="weight">Weight</a></li>
+      <li><a class="nav-link" data-section="length">Length</a></li>
+      <li><a class="nav-link" data-section="power">Power/Energy</a></li>
+      <li><a class="nav-link" data-section="calories">Calories</a></li>
+    </ul>
+  </li>
+</ul>
+</nav>
+
+<div id="all">
+<section id="home" class="section active">
+  <div class="center">
+    <h1 id="typed-heading">Welcome! To All-in-One Calculator.</h1>
+    <h2>
+      You can use: 
+            <a href="#" data-section="regular" class="nav-link">Regular</a>, 
+            <a href="#" data-section="age" class="nav-link">Age</a>, 
+            <a href="#" data-section="time" class="nav-link">Time</a>, 
+            <a href="#" data-section="money" class="nav-link">Money</a>, 
+            <a href="#" data-section="bmi" class="nav-link">BMI</a>, 
+            <a href="#" data-section="temp" class="nav-link">Temperature</a>, 
+            <a href="#" data-section="loan" class="nav-link">Loan</a>, 
+            <a href="#" data-section="discount" class="nav-link">Discount</a>, 
+            <a href="#" data-section="gst" class="nav-link">GST/Tax</a>, 
+            <a href="#" data-section="tip" class="nav-link">Tip</a>, 
+            <a href="#" data-section="percentage" class="nav-link">Percentage</a>, 
+            <a href="#" data-section="simple-interest" class="nav-link">Simple Interest</a>, 
+            <a href="#" data-section="compound-interest" class="nav-link">Compound Interest</a>, 
+            <a href="#" data-section="speed" class="nav-link">Speed</a>, 
+            <a href="#" data-section="area" class="nav-link">Area</a>, 
+            <a href="#" data-section="volume" class="nav-link">Volume</a>, 
+            <a href="#" data-section="weight" class="nav-link">Weight</a>, 
+            <a href="#" data-section="length" class="nav-link">Length</a>, 
+            <a href="#" data-section="power" class="nav-link">Power</a> and 
+            <a href="#" data-section="calories" class="nav-link">Calories</a> Calculators.
+    </h2>
+  </div>
+</section>
+
+<section id="regular" class="section">
+  <h1>Regular Calculator</h1>
+  <input type="text" id="display" disabled>
+  <div class="buttons">
+    <button onclick="appendValue('7')">7</button>
+    <button onclick="appendValue('8')">8</button>
+    <button onclick="appendValue('9')">9</button>
+    <button onclick="appendValue('+')">+</button>
+    <button onclick="appendValue('4')">4</button>
+    <button onclick="appendValue('5')">5</button>
+    <button onclick="appendValue('6')">6</button>
+    <button onclick="appendValue('-')">-</button>
+    <button onclick="appendValue('1')">1</button>
+    <button onclick="appendValue('2')">2</button>
+    <button onclick="appendValue('3')">3</button>
+    <button onclick="appendValue('*')">x</button>
+    <button onclick="appendValue('.')">.</button>
+    <button onclick="appendValue('0')">0</button>
+    <button onclick="appendValue('00')">00</button>
+    <button onclick="appendValue('/')">÷</button>
+    <button id="equal" onclick="calculateResult()">=</button>
+    <button onclick="clearDisplay()">C</button>
+  </div>
+</section>
+
+<section id="age" class="section">
+  <h1>Age Calculator</h1>
+  <input type="date" id="birthdate">
+  <button onclick="calculateAge()">Calculate Age</button>
+  <div id="ageResult"></div>
+</section>
+
+<section id="time" class="section">
+  <h1>Time Difference Calculator</h1>
+  <input type="datetime-local" id="dateTime1">
+  <input type="datetime-local" id="dateTime2">
+  <button onclick="calculateTime()">Calculate</button>
+  <div id="timeResult"></div>
+</section>
+
+<section id="money" class="section">
+    <h1>Money Calculator</h1>
+    <input type="number" id="billValue" placeholder="Bill Value (e.g., 20)">
+    <input type="number" id="billCount" placeholder="Number of Bills (e.g., 5)">
+    <button onclick="addBill()">Add Bill</button>
+    <pre id="moneyResult"></pre>
+</section>
+
+<section id="bmi" class="section">
+  <h1>BMI Calculator</h1>
+  <input type="number" id="weightInput" placeholder="Weight (kg)">
+  <input type="number" id="heightInput" placeholder="Height (cm)">
+  <button onclick="calculateBMI()">Calculate BMI</button>
+  <div id="bmiResult"></div>
+</section>
+
+<section id="temp" class="section">
+  <h1>Temperature Converter</h1>
+  <input type="number" id="tempInput" placeholder="Temperature">
+  <select id="tempUnit">
+    <option value="C">Celsius → Fahrenheit</option>
+    <option value="F">Fahrenheit → Celsius</option>
+  </select>
+  <button onclick="convertTemp()">Convert</button>
+  <div id="tempResult"></div>
+</section>
+
+<section id="loan" class="section">
+  <h1>Loan Calculator</h1>
+  <input type="number" id="loanAmount" placeholder="Loan Amount">
+  <input type="number" id="loanRate" placeholder="Interest Rate %">
+  <input type="number" id="loanYears" placeholder="Years">
+  <button onclick="calculateLoan()">Calculate</button>
+  <div id="loanResult"></div>
+</section>
+
+<section id="discount" class="section">
+  <h1>Discount Calculator</h1>
+  <input type="number" id="priceInput" placeholder="Original Price">
+  <input type="number" id="discountInput" placeholder="Discount %">
+  <button onclick="calculateDiscount()">Calculate</button>
+  <div id="discountResult"></div>
+</section>
+
+<section id="gst" class="section">
+  <h1>GST / Tax Calculator</h1>
+  <input type="number" id="gstPrice" placeholder="Price">
+  <input type="number" id="gstRate" placeholder="Tax %">
+  <button onclick="calculateGST()">Calculate</button>
+  <div id="gstResult"></div>
+</section>
+
+<section id="tip" class="section">
+  <h1>Tip Calculator</h1>
+  <input type="number" id="billTotal" placeholder="Bill Total">
+  <input type="number" id="tipPercent" placeholder="Tip %">
+  <button onclick="calculateTip()">Calculate</button>
+  <div id="tipResult"></div>
+</section>
+
+<section id="percentage" class="section">
+  <h1>Percentage Calculator</h1>
+  <input type="number" id="percentOf" placeholder="Number">
+  <input type="number" id="percentValue" placeholder="Percentage %">
+  <button onclick="calculatePercent()">Calculate</button>
+  <div id="percentResult"></div>
+</section>
+
+<section id="simple-interest" class="section">
+  <h1>Simple Interest</h1>
+  <input type="number" id="siPrincipal" placeholder="Principal">
+  <input type="number" id="siRate" placeholder="Rate %">
+  <input type="number" id="siTime" placeholder="Time (years)">
+  <button onclick="calculateSI()">Calculate</button>
+  <div id="siResult"></div>
+</section>
+
+<section id="compound-interest" class="section">
+  <h1>Compound Interest</h1>
+  <input type="number" id="ciPrincipal" placeholder="Principal">
+  <input type="number" id="ciRate" placeholder="Rate %">
+  <input type="number" id="ciTime" placeholder="Time (years)">
+  <input type="number" id="ciFreq" placeholder="Times/Year">
+  <button onclick="calculateCI()">Calculate</button>
+  <div id="ciResult"></div>
+</section>
+
+<section id="speed" class="section">
+  <h1>Speed / Distance / Time</h1>
+  <input type="number" id="distance" placeholder="Distance (km)">
+  <input type="number" id="timeVal" placeholder="Time (hours)">
+  <button onclick="calculateSpeed()">Calculate</button>
+  <div id="speedResult"></div>
+</section>
+
+<section id="area" class="section">
+  <h1>Area / Perimeter</h1>
+  <input type="number" id="lengt" placeholder="Length">
+  <input type="number" id="width" placeholder="Width">
+  <button onclick="calculateArea()">Calculate</button>
+  <div id="areaResult"></div>
+</section>
+
+<section id="volume" class="section">
+  <h1>Volume (Cube)</h1>
+  <input type="number" id="side" placeholder="Side Length">
+  <button onclick="calculateVolume()">Calculate</button>
+  <div id="volumeResult"></div>
+</section>
+
+<section id="weight" class="section">
+    <h1>Weight Converter</h1>
+    <input type="number" id="weightValue" placeholder="Weight(lbs/kg)">
+    <select id="weightUnit"> 
+        <option value="kg">kilogram → pound</option>
+        <option value="lbs">pound → kilogram</option>
+    </select>
+    <button onclick="convertWeight()">Convert</button>
+    <div id="weightResult"></div>
+</section>
+
+<section id="length" class="section">
+  <h1>Length / Distance Converter</h1>
+    <input type="number" id="lengthInput" placeholder="Value">
+    <select id="fromUnit">
+        <option value="m">meter (m)</option>
+        <option value="mm">millimeter (mm)</option>
+        <option value="cm">centimeter (cm)</option>
+        <option value="km">kilometer (km)</option>
+        <option value="inch">inch (in)</option>
+        <option value="foot">foot (ft)</option>
+        <option value="mile">mile (mi)</option>
+    </select>
+    <span><br>to<br></span>
+    <select id="toUnit">
+        <option value="m">meter (m)</option>
+        <option value="mm">millimeter (mm)</option>
+        <option value="cm">centimeter (cm)</option>
+        <option value="km">kilometer (km)</option>
+        <option value="inch">inch (in)</option>
+        <option value="foot">foot (ft)</option>
+        <option value="mile">mile (mi)</option>
+    </select>
+  <button onclick="convertLength()">Convert</button>
+  <div id="lengthResult"></div>
+</section>
+
+<section id="power" class="section">
+  <h1>Power / Energy</h1>
+  <input type="number" id="work" placeholder="Work (Joules)">
+  <input type="number" id="timePower" placeholder="Time (seconds)">
+  <button onclick="calculatePower()">Calculate</button>
+  <div id="powerResult"></div>
+</section>
+
+<section id="calories" class="section">
+  <h1>Calories Calculator</h1>
+  <input type="number" id="calWeight" placeholder="Weight (kg)">
+  <input type="number" id="calHeight" placeholder="Height (cm)">
+  <input type="number" id="calAge" placeholder="Age">
+  <button onclick="calculateCalories()">Calculate</button>
+  <div id="caloriesResult"></div>
+</section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

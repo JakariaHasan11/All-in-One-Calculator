@@ -1,0 +1,162 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F2F2F2;
+    min-height: 100vh;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+#menu {
+    background-color: #EAE4D5;
+    flex-shrink: 0;
+}
+#menu ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+#menu li {
+    position: relative;
+    margin: 0 5px;
+}
+#menu a {
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    padding: 10px 15px;
+    display: block;
+}
+#menu a:hover {
+    color: #B6B09F;
+}
+
+.dropdown {
+    position: relative;
+}
+.dropdown:hover .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #EAE4D5;
+    list-style: none;
+    padding: 10px 0px;
+    margin: 0;
+    border-radius: 5px;
+    min-width: 400px;
+    max-width: 600px;
+    z-index: 1000;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 0;
+    box-sizing: border-box;
+    right: 0px;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+.dropdown-menu li a {
+  font-size: 15px;
+    color: #000;
+    display: block;
+    padding: 6px 10px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.dropdown-menu li a:hover {
+    color: #B6B09F;
+}
+.dropdown:hover .dropdown-menu {
+    display: grid;
+}
+
+#all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+    flex-grow: 1; 
+}
+
+.section {
+    display: none;
+    max-width: 600px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.section.active {
+    display: block;
+}
+
+h1 {
+    font-size: 25px;
+    padding: 15px;
+}
+h2 {
+    font-size: 20px;
+    padding: 15px;
+}
+a[data-section] {
+    text-decoration: none;
+    color: #000;
+}
+a[data-section]:hover {
+    color: #B6B09F;
+}
+
+#regular {
+    background-color: #000;
+}
+#regular h1 {
+    color: #fff;
+}
+input[type="number"], input[type="text"], input[type="date"], input[type="datetime-local"], select {
+    width: 94%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #B6B09F;
+    border-radius: 5px;
+}
+button {
+    background: #EAE4D5;
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background: #B6B09F;
+    color: #000;
+}
+
+#display {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #EAE4D5;
+}
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+#equal {
+    grid-column: 1 / 4;
+}
